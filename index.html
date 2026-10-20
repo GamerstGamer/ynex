@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YNEX OPTIMIZATIONS — Desbloqueie Seu Potencial</title>
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07060e;
+  --bg2:#0d0b1a;
+  --card:#121022;
+  --card2:#181430;
+  --border:#2a2452;
+  --neon-purple:#a855f7;
+  --neon-violet:#7c3aed;
+  --neon-cyan:#22d3ee;
+  --neon-pink:#ec4899;
+  --neon-green:#4ade80;
+  --text:#e2e0f0;
+  --muted:#8b87ad;
+  --grad:linear-gradient(135deg,#a855f7 0%,#6366f1 50%,#22d3ee 100%);
+  --grad-text:linear-gradient(135deg,#c084fc 0%,#818cf8 45%,#22d3ee 100%);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%}
+::selection{background:var(--neon-purple);color:#fff}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--neon-violet);border-radius:4px}
+
+/* ============ ANNOUNCEMENT BAR ============ */
+.announce{
+  background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899,#a855f7,#7c3aed);
+  background-size:200% 100%;
+  animation:slideBg 4s linear infinite;
+  text-align:center;
+  padding:8px 16px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:#fff;
+  position:relative;
+  z-index:100;
+}
+@keyframes slideBg{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+/* ============ NAVBAR ============ */
+.navbar{
+  position:sticky;top:0;z-index:90;
+  background:rgba(7,6,14,.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-size:20px;font-weight:900;letter-spacing:2px;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo .logo-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  box-shadow:0 0 18px rgba(168,85,247,.45);
+}
+.nav-logo span:first-child{color:#fff}
+.logo-accent{
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.nav-links{
+  display:flex;align-items:center;gap:4px;list-style:none;
+}
+.nav-links a{
+  padding:8px 16px;border-radius:8px;
+  font-size:13px;font-weight:600;letter-spacing:.5px;
+  color:var(--muted);
+  transition:all .3s ease;
+  position:relative;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:#fff;
+  background:rgba(168,85,247,.12);
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:2px;left:16px;right:16px;height:2px;
+  background:var(--grad);border-radius:2px;
+  transform:scaleX(0);transition:transform .3s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+
+/* Language toggle */
+.lang-toggle{
+  display:flex;align-items:center;gap:4px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:4px;
+}
+.lang-toggle button{
+  padding:5px 12px;border-radius:16px;
+  font-size:11px;font-weight:800;letter-spacing:1px;
+  color:var(--muted);transition:all .3s ease;
+}
+.lang-toggle button.active{
+  background:var(--grad);color:#fff;
+  box-shadow:0 0 12px rgba(168,85,247,.4);
+}
+
+/* ============ NEON BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 28px;border-radius:12px;
+  font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  position:relative;overflow:hidden;
+  transition:all .35s cubic-bezier(.25,.8,.25,1);
+  border:1px solid transparent;
+  transform:translateY(0);
+}
+.btn-neon{
+  background:var(--grad);color:#fff;
+  box-shadow:0 0 20px rgba(168,85,247,.3),0 0 60px rgba(168,85,247,.1),inset 0 1px 0 rgba(255,255,255,.2);
+  background-size:200% 200%;
+}
+.btn-neon::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  transition:left .6s ease;
+}
+.btn-neon:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 0 30px rgba(168,85,247,.6),0 0 80px rgba(168,85,247,.2),0 8px 32px rgba(168,85,247,.3);
+}
+.btn-neon:hover::before{left:100%}
+.btn-neon:active{transform:translateY(-1px) scale(.98)}
+
+.btn-outline{
+  background:transparent;color:var(--text);
+  border:1px solid var(--border);
+}
+.btn-outline:hover{
+  border-color:var(--neon-purple);color:#fff;
+  box-shadow:0 0 20px rgba(168,85,247,.25),inset 0 0 20px rgba(168,85,247,.05);
+  transform:translateY(-2px);
+}
+
+.btn-cyan{
+  background:linear-gradient(135deg,#06b6d4,#22d3ee);color:#07060e;
+  box-shadow:0 0 20px rgba(34,211,238,.3);
+}
+.btn-cyan:hover{
+  box-shadow:0 0 30px rgba(34,211,238,.5),0 8px 32px rgba(34,211,238,.2);
+  transform:translateY(-3px) scale(1.03);
+}
+
+.btn-pink{
+  background:linear-gradient(135deg,#ec4899,#f43f5e);color:#fff;
+  box-shadow:0 0 20px rgba(236,72,153,.3);
+}
+.btn-pink:hover{
+  box-shadow:0 0 30px rgba(236,72,153,.5),0 8px 32px rgba(236,72,153,.2);
+  transform:translateY(-3px) scale(1.03);
+}
+
+/* Animated pulse ring */
+.btn-pulse{animation:pulseRing 2.5s ease-in-out infinite}
+@keyframes pulseRing{
+  0%,100%{box-shadow:0 0 20px rgba(168,85,247,.3),0 0 0 0 rgba(168,85,247,.4)}
+  50%{box-shadow:0 0 25px rgba(168,85,247,.45),0 0 0 8px rgba(168,85,247,0)}
+}
+
+/* ============ LAYOUT ============ */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.page{display:none;min-height:calc(100vh - 64px);animation:fadeUp .5s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding:80px 24px 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  max-width:1200px;margin:0 auto;
+  min-height:calc(100vh - 100px);
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 40%,rgba(124,58,237,.12),transparent),
+    radial-gradient(ellipse 500px 300px at 80% 60%,rgba(34,211,238,.08),transparent);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);
+  border-radius:20px;padding:6px 16px;
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--neon-green);
+  margin-bottom:24px;
+}
+.hero-badge .dot{
+  width:8px;height:8px;border-radius:50%;background:var(--neon-green);
+  box-shadow:0 0 8px var(--neon-green);
+  animation:blink 1.5s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-size:clamp(42px,5vw,68px);
+  font-weight:900;line-height:1.05;letter-spacing:-1px;
+  margin-bottom:20px;
+}
+.hero h1 .grad{
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:16px;color:var(--muted);max-width:480px;
+  margin-bottom:32px;
+}
+.hero-stats{
+  display:flex;gap:0;margin-bottom:36px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.stat-box{
+  padding:20px 28px;flex:1;text-align:center;
+  border-right:1px solid var(--border);
+  transition:all .3s ease;
+}
+.stat-box:last-child{border-right:none}
+.stat-box:hover{background:var(--card2)}
+.stat-box .val{
+  font-size:28px;font-weight:900;
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.stat-box .lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hero-price{
+  font-size:28px;font-weight:900;
+}
+.hero-price small{font-size:12px;color:var(--muted);font-weight:600;display:block}
+.hero-footer{
+  display:flex;align-items:center;gap:16px;margin-top:24px;
+  font-size:13px;color:var(--muted);
+}
+.hero-footer .stars{color:#facc15;font-size:16px;letter-spacing:2px}
+
+/* ============ APP MOCKUP ============ */
+.app-mock{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 0 60px rgba(124,58,237,.15),0 20px 60px rgba(0,0,0,.4);
+  animation:floatY 6s ease-in-out infinite;
+}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.app-mock-bar{
+  height:36px;background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:6px;padding:0 16px;
+}
+.app-mock-bar .adot{width:10px;height:10px;border-radius:50%}
+.adot.r{background:#f87171}.adot.y{background:#facc15}.adot.g{background:#4ade80}
+.app-mock-body{display:grid;grid-template-columns:200px 1fr}
+.app-sidebar{
+  background:var(--bg2);border-right:1px solid var(--border);
+  padding:16px 0;
+}
+.app-sidebar .sb-title{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase;padding:0 16px 8px}
+.sb-item{
+  padding:10px 16px;font-size:13px;font-weight:600;
+  color:var(--muted);display:flex;align-items:center;gap:10px;
+  border-left:3px solid transparent;
+  transition:all .3s ease;cursor:pointer;
+}
+.sb-item:hover{color:#fff;background:rgba(168,85,247,.06)}
+.sb-item.active{
+  color:#fff;background:rgba(168,85,247,.1);
+  border-left-color:var(--neon-purple);
+}
+.sb-item .icon{font-size:16px}
+.app-panel{padding:20px}
+.app-panel h3{font-size:16px;font-weight:800;margin-bottom:4px}
+.app-panel .sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+.tweak-row{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;border-radius:10px;
+  background:var(--bg2);border:1px solid var(--border);
+  margin-bottom:8px;
+  transition:all .3s ease;
+}
+.tweak-row:hover{border-color:var(--neon-purple);background:var(--card2)}
+.tweak-row .ticon{font-size:18px}
+.tweak-row .ttext{flex:1}
+.tweak-row .ttext .tname{font-size:13px;font-weight:700}
+.tweak-row .ttext .tdesc{font-size:11px;color:var(--muted)}
+.toggle{
+  width:40px;height:22px;border-radius:11px;
+  background:var(--border);position:relative;
+  transition:all .3s ease;flex-shrink:0;
+}
+.toggle::after{
+  content:'';position:absolute;top:3px;left:3px;
+  width:16px;height:16px;border-radius:50%;
+  background:#fff;transition:all .3s ease;
+}
+.toggle.on{background:var(--neon-purple);box-shadow:0 0 12px rgba(168,85,247,.4)}
+.toggle.on::after{left:21px}
+.app-mock-cta{
+  margin-top:16px;width:100%;padding:14px;
+  background:var(--grad);color:#fff;
+  border-radius:12px;font-weight:800;font-size:13px;
+  letter-spacing:1px;text-transform:uppercase;
+  transition:all .3s ease;
+}
+.app-mock-cta:hover{box-shadow:0 0 30px rgba(168,85,247,.4);transform:scale(1.02)}
+
+/* ============ SECTION STYLES ============ */
+.section{padding:80px 0}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{
+  font-size:clamp(28px,3.5vw,40px);font-weight:900;margin-bottom:12px;
+}
+.section-header h2 .grad{
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-header p{color:var(--muted);font-size:15px;max-width:560px;margin:0 auto}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:24px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:28px;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--grad);
+  transform:scaleX(0);transition:transform .4s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--neon-purple);
+  box-shadow:0 0 30px rgba(168,85,247,.12),0 20px 40px rgba(0,0,0,.3);
+}
+.card:hover::before{transform:scaleX(1)}
+.card .card-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+  box-shadow:0 0 20px rgba(168,85,247,.3);
+}
+.card h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+
+/* ============ TABLES ============ */
+.table-wrap{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+table{width:100%;border-collapse:collapse}
+th,td{padding:14px 20px;text-align:left;font-size:14px}
+th{
+  background:var(--bg2);font-size:11px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;color:var(--muted);
+}
+td{border-top:1px solid var(--border);color:var(--muted)}
+td:first-child{color:var(--text);font-weight:700}
+tr{transition:background .3s ease}
+tbody tr:hover{background:rgba(168,85,247,.05)}
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 10px;border-radius:12px;
+  font-size:11px;font-weight:700;
+}
+.badge-green{background:rgba(74,222,128,.12);color:var(--neon-green)}
+.badge-cyan{background:rgba(34,211,238,.12);color:var(--neon-cyan)}
+.badge-purple{background:rgba(168,85,247,.12);color:var(--neon-purple)}
+.badge-pink{background:rgba(236,72,153,.12);color:var(--neon-pink)}
+
+/* ============ PRICING ============ */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.price-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:36px 28px;text-align:center;
+  transition:all .4s ease;position:relative;
+}
+.price-card.featured{
+  border-color:var(--neon-purple);
+  box-shadow:0 0 40px rgba(168,85,247,.15);
+  transform:scale(1.05);
+}
+.price-card:hover{transform:translateY(-8px);box-shadow:0 0 30px rgba(168,85,247,.12)}
+.price-card.featured:hover{transform:scale(1.05) translateY(-8px)}
+.price-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#fff;
+  padding:4px 16px;border-radius:12px;
+  font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+.price-name{font-size:18px;font-weight:800;margin-bottom:8px}
+.price-val{font-size:42px;font-weight:900;margin-bottom:4px}
+.price-val small{font-size:14px;color:var(--muted);font-weight:600}
+.price-desc{font-size:13px;color:var(--muted);margin-bottom:24px}
+.price-features{list-style:none;text-align:left;margin-bottom:28px}
+.price-features li{
+  padding:8px 0;font-size:14px;color:var(--muted);
+  display:flex;align-items:center;gap:10px;
+}
+.price-features li::before{content:'✦';color:var(--neon-purple)}
+
+/* ============ FORMS ============ */
+.form-wrap{
+  max-width:420px;margin:0 auto;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:40px;
+}
+.form-wrap h2{font-size:24px;font-weight:900;text-align:center;margin-bottom:8px}
+.form-wrap .sub{text-align:center;font-size:14px;color:var(--muted);margin-bottom:28px}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;font-size:12px;font-weight:700;letter-spacing:.5px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+}
+.form-group input{
+  width:100%;padding:12px 16px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;color:var(--text);font-size:14px;
+  transition:all .3s ease;outline:none;
+}
+.form-group input:focus{
+  border-color:var(--neon-purple);
+  box-shadow:0 0 0 3px rgba(168,85,247,.15);
+}
+.form-btn{width:100%;margin-top:8px}
+.form-alt{
+  text-align:center;margin-top:20px;font-size:13px;color:var(--muted);
+}
+.form-alt a{color:var(--neon-purple);font-weight:700;transition:all .3s ease}
+.form-alt a:hover{text-shadow:0 0 8px rgba(168,85,247,.5)}
+
+/* ============ NEWS / LAUNCHES ============ */
+.news-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:all .4s ease;
+}
+.news-card:hover{
+  transform:translateY(-6px);border-color:var(--neon-cyan);
+  box-shadow:0 0 30px rgba(34,211,238,.1);
+}
+.news-img{
+  height:160px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:48px;
+}
+.news-body{padding:20px}
+.news-body .date{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--neon-cyan);margin-bottom:8px}
+.news-body h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.news-body p{font-size:13px;color:var(--muted)}
+.news-body .read-more{
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:12px;font-size:13px;font-weight:700;
+  color:var(--neon-purple);transition:all .3s ease;
+}
+.news-body .read-more:hover{gap:8px;text-shadow:0 0 8px rgba(168,85,247,.5)}
+
+/* ============ GAMES GRID ============ */
+.game-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:24px;
+  display:flex;align-items:center;gap:16px;
+  transition:all .3s ease;
+}
+.game-card:hover{
+  border-color:var(--neon-purple);transform:translateX(6px);
+  box-shadow:0 0 20px rgba(168,85,247,.1);
+}
+.game-icon{
+  width:56px;height:56px;border-radius:12px;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+  box-shadow:0 0 16px rgba(168,85,247,.25);
+}
+.game-info h3{font-size:16px;font-weight:800}
+.game-info p{font-size:13px;color:var(--muted)}
+.game-tag{margin-left:auto}
+
+/* ============ FOOTER ============ */
+.footer{
+  border-top:1px solid var(--border);
+  background:var(--bg2);
+  padding:48px 24px 24px;
+  text-align:center;
+}
+.footer-logo{
+  font-size:20px;font-weight:900;letter-spacing:2px;margin-bottom:16px;
+}
+.footer-links{
+  display:flex;justify-content:center;gap:24px;
+  list-style:none;margin-bottom:24px;flex-wrap:wrap;
+}
+.footer-links a{
+  font-size:13px;color:var(--muted);font-weight:600;
+  transition:all .3s ease;
+}
+.footer-links a:hover{color:#fff;text-shadow:0 0 8px rgba(168,85,247,.5)}
+.footer-copy{font-size:12px;color:var(--muted)}
+.footer-social{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+.footer-social a{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;transition:all .3s ease;
+}
+.footer-social a:hover{
+  border-color:var(--neon-purple);transform:translateY(-3px);
+  box-shadow:0 0 16px rgba(168,85,247,.25);
+}
+
+/* ============ FLOATING PARTICLES ============ */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--neon-purple);opacity:.3;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh) rotate(0deg);opacity:0}
+  10%{opacity:.4}
+  90%{opacity:.4}
+  100%{transform:translateY(-10vh) rotate(720deg);opacity:0}
+}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  background:var(--card);border:1px solid var(--neon-purple);
+  border-radius:12px;padding:16px 24px;
+  font-size:14px;font-weight:700;
+  box-shadow:0 0 30px rgba(168,85,247,.3);
+  transform:translateX(120%);transition:transform .4s ease;
+}
+.toast.show{transform:translateX(0)}
+
+/* ============ MOBILE ============ */
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease}
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;
+    background:var(--bg2);border-bottom:1px solid var(--border);
+    flex-direction:column;padding:16px;gap:8px;
+    transform:translateY(-120%);transition:transform .4s ease;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .hamburger{display:flex}
+  .hero{grid-template-columns:1fr;padding-top:40px}
+  .hero-stats{flex-direction:column}
+  .stat-box{border-right:none;border-bottom:1px solid var(--border)}
+  .stat-box:last-child{border-bottom:none}
+  .grid-3,.grid-2,.pricing-grid{grid-template-columns:1fr}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-8px)}
+  .app-mock-body{grid-template-columns:1fr}
+  .app-sidebar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Announcement -->
+<div class="announce" id="announceBar">
+  🚀 <span data-i18n="announce">VERSÃO 5.0 LANÇADA — A MAIOR ATUALIZAÇÃO DA HISTÓRIA DA YNEX OPTIMIZATIONS — DISPONÍVEL AGORA</span>
+</div>
+
+<!-- Nav -->
+<nav class="navbar">
+  <a href="#/" class="nav-logo">
+    <span class="logo-icon">⚡</span>
+    <span>YNEX<span class="logo-accent">OPTIMIZATIONS</span></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#/lancamentos" data-route="lancamentos" data-i18n="nav.launch">Lançamentos</a></li>
+    <li><a href="#/benchmarks" data-route="benchmarks" data-i18n="nav.bench">Benchmarks</a></li>
+    <li><a href="#/jogos" data-route="jogos" data-i18n="nav.games">Jogos Suportados</a></li>
+    <li><a href="#/produtos" data-route="produtos" data-i18n="nav.products">Produtos</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-toggle">
+      <button onclick="setLang('pt')" id="btnPt" class="active">PT</button>
+      <button onclick="setLang('en')" id="btnEn">EN</button>
+    </div>
+    <a href="#/comprar" class="btn btn-neon btn-pulse" data-i18n="nav.buy">✦ Comprar</a>
+    <a href="#/entrar" class="btn btn-outline" data-i18n="nav.login">Entrar</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="app">
+  <!-- Pages rendered by JS router -->
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">YNEX<span class="logo-accent">OPTIMIZATIONS</span></div>
+  <div class="footer-social">
+    <a href="#" title="Discord">💬</a>
+    <a href="#" title="YouTube">📺</a>
+    <a href="#" title="Twitter/X">🐦</a>
+    <a href="#" title="Instagram">📷</a>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#/" data-i18n="footer.home">Início</a></li>
+    <li><a href="#/lancamentos" data-i18n="footer.launch">Lançamentos</a></li>
+    <li><a href="#/benchmarks" data-i18n="footer.bench">Benchmarks</a></li>
+    <li><a href="#/jogos" data-i18n="footer.games">Jogos</a></li>
+    <li><a href="#/produtos" data-i18n="footer.products">Produtos</a></li>
+    <li><a href="#/comprar" data-i18n="footer.buy">Comprar</a></li>
+  </ul>
+  <p class="footer-copy" data-i18n="footer.copy">© 2026 YNEX Optimizations. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   I18N
+================================================================ */
+const I18N = {
+  pt: {
+    'announce': 'VERSÃO 5.0 LANÇADA — A MAIOR ATUALIZAÇÃO DA HISTÓRIA DA YNEX OPTIMIZATIONS — DISPONÍVEL AGORA',
+    'nav.launch': 'Lançamentos', 'nav.bench': 'Benchmarks', 'nav.games': 'Jogos Suportados',
+    'nav.products': 'Produtos', 'nav.buy': '✦ Comprar', 'nav.login': 'Entrar',
+    'hero.badge': 'ONLINE • INDETECTÁVEL • V 5.0',
+    'hero.title1': 'DESBLOQUEIE', 'hero.title2': 'SEU POTENCIAL',
+    'hero.sub': 'Aumente seu FPS, reduza o Input Lag e force Hz personalizados no seu monitor. A ferramenta essencial para quem joga competitivo — usada por +12.000 gamers.',
+    'hero.stat1': '+40%', 'hero.stat1l': 'MAIS FPS', 'hero.stat2': '-15ms', 'hero.stat2l': 'LATÊNCIA',
+    'hero.stat3': '4.9★', 'hero.stat3l': 'AVALIAÇÃO',
+    'hero.cta': '✦ COMPRAR AGORA', 'hero.price': 'R$ 14,90', 'hero.pricel': 'ACESSO VITALÍCIO',
+    'hero.gamers': '+12.000 gamers ativos', 'hero.discord': 'Suporte no Discord',
+    'mock.title': 'Boost Geral', 'mock.sub': 'Selecione os tweaks desejados. Bloqueados aparecem como segurança para evitar danos no Windows.',
+    'mock.apply': 'APLICAR',
+    'nav.app1': 'Boost Geral', 'nav.app2': 'FPS & GPU', 'nav.app3': 'Ping & Rede',
+    'nav.app4': 'Disco & Cache', 'nav.app5': 'Energia', 'nav.app6': 'Serviços',
+    'nav.app7': 'Visual', 'nav.app8': 'Privacidade', 'nav.app9': 'Apps', 'nav.app10': 'Saúde',
+    'footer.home': 'Início', 'footer.launch': 'Lançamentos', 'footer.bench': 'Benchmarks',
+    'footer.games': 'Jogos', 'footer.products': 'Produtos', 'footer.buy': 'Comprar',
+    'footer.copy': '© 2026 YNEX Optimizations. Todos os direitos reservados.',
+    'page.bench.title': 'Resultados de', 'page.bench.title2': 'Benchmarks',
+    'page.bench.sub': 'Testes reais realizados em configs variadas. Resultados médios em jogos competitivos a 1080p.',
+    'page.jogos.title': 'Jogos', 'page.jogos.title2': 'Suportados',
+    'page.jogos.sub': 'Compatibilidade testada e verificada com os principais títulos competitivos do mercado.',
+    'page.produtos.title': 'Nossos', 'page.produtos.title2': 'Produtos',
+    'page.produtos.sub': 'Escolha o plano ideal para o seu setup. Todos incluem atualizações vitalícias.',
+    'page.comprar.title': 'Finalizar', 'page.comprar.title2': 'Compra',
+    'page.comprar.sub': 'Pagamento seguro e entrega imediata da licença.',
+    'page.lanc.title': 'Últimos', 'page.lanc.title2': 'Lançamentos',
+    'page.lanc.sub': 'Acompanhe as novidades e atualizações da YNEX Optimizations.',
+    'page.entrar.title': 'Bem-vindo de', 'page.entrar.title2': 'volta',
+    'page.entrar.sub': 'Acesse sua conta para gerenciar licenciais e downloads.',
+    'page.registrar.title': 'Criar', 'page.registrar.title2': 'Conta',
+    'page.registrar.sub': 'Cadastre-se gratuitamente e comece a otimizar.',
+    'form.email': 'E-mail', 'form.pass': 'Senha', 'form.name': 'Nome completo',
+    'form.login': 'Entrar', 'form.register': 'Criar Conta',
+    'form.noaccount': 'Não tem conta? Registre-se', 'form.haveaccount': 'Já tem conta? Entrar',
+    'toast.login': 'Login realizado com sucesso! Bem-vindo de volta.',
+    'toast.register': 'Conta criada com sucesso! Verifique seu e-mail.',
+    'toast.lang': 'Idioma alterado para Português',
+    'toast.applied': 'Tweaks aplicados com sucesso!',
+    'pricing.basic': 'Básico', 'pricing.pro': 'Pro', 'pricing.ultra': 'Ultra',
+    'pricing.basicDesc': 'Para iniciantes', 'pricing.proDesc': 'Mais popular', 'pracing.ultraDesc': 'Máximo desempenho',
+    'pricing.monthly': '/mês', 'pricing.once': 'pagamento único',
+    'pricing.get': 'Começar', 'pricing.current': 'Plano Atual',
+    'buy.order': 'Finalizar Pedido', 'buy.license': 'Chave de Licença',
+    'buy.total': 'Total',
+    'feat1': 'Boost Geral', 'feat2': 'FPS & GPU Tweaks', 'feat3': 'Ping & Rede',
+    'feat4': 'Disco & Cache', 'feat5': 'Otimização de Energia', 'feat6': 'Privacidade',
+    'feat7': 'Suporte no Discord', 'feat8': 'Atualizações vitalícias', 'feat9': 'Modo Turbo +',
+    'game.cs2': 'Counter-Strike 2', 'game.valorant': 'Valorant', 'game.fortnite': 'Fortnite',
+    'game.r6': 'Rainbow Six Siege', 'game.apex': 'Apex Legends', 'game.warzone': 'Call of Duty: Warzone',
+    'game.gta5': 'GTA V', 'game.rust': 'Rust', 'game.pubg': 'PUBG: Battlegrounds',
+    'game.lol': 'League of Legends', 'game.dota2': 'Dota 2', 'game.overwatch': 'Overwatch 2',
+    'status.optimal': 'Otimizado', 'status.good': 'Bom', 'status.test': 'Em teste',
+    'bench.game': 'Jogo', 'bench.fps': 'FPS Ganho', 'bench.lat': 'Latência', 'bench.status': 'Status',
+    'news.read': 'Ler mais →', 'news.5.0tag': 'v5.0',
+    'news.5.0title': 'YNEX 5.0 — Revolução no Boost',
+    'news.5.0desc': 'Novo motor de otimização com +40% de FPS em testes reais.',
+    'news.4.5tag': 'v4.5', 'news.4.5title': 'Novo painel de Rede',
+    'news.4.5desc': 'Controle total de ping e latência com testes automatizados.',
+    'news.4.2tag': 'v4.2', 'news.4.2title': 'Modo Ultra para esportes',
+    'news.4.2desc': 'Modo extremo para quem quer cada frame possível.',
+  },
+  en: {
+    'announce': 'VERSION 5.0 RELEASED — THE BIGGEST UPDATE IN YNEX OPTIMIZATIONS HISTORY — AVAILABLE NOW',
+    'nav.launch': 'Releases', 'nav.bench': 'Benchmarks', 'nav.games': 'Supported Games',
+    'nav.products': 'Products', 'nav.buy': '✦ Buy', 'nav.login': 'Sign In',
+    'hero.badge': 'ONLINE • UNDETECTABLE • V 5.0',
+    'hero.title1': 'UNLOCK', 'hero.title2': 'YOUR POTENTIAL',
+    'hero.sub': 'Boost your FPS, reduce Input Lag and force custom Hz on your monitor. The essential tool for competitive gamers — trusted by +12,000 gamers.',
+    'hero.stat1': '+40%', 'hero.stat1l': 'MORE FPS', 'hero.stat2': '-15ms', 'hero.stat2l': 'LATENCY',
+    'hero.stat3': '4.9★', 'hero.stat3l': 'RATING',
+    'hero.cta': '✦ BUY NOW', 'hero.price': '$ 29.90', 'hero.pricel': 'LIFETIME ACCESS',
+    'hero.gamers': '+12,000 active gamers', 'hero.discord': 'Discord Support',
+    'mock.title': 'General Boost', 'mock.sub': 'Select desired tweaks. Blocked ones appear as safety to prevent Windows damage.',
+    'mock.apply': 'APPLY',
+    'nav.app1': 'General Boost', 'nav.app2': 'FPS & GPU', 'nav.app3': 'Ping & Network',
+    'nav.app4': 'Disk & Cache', 'nav.app5': 'Power', 'nav.app6': 'Services',
+    'nav.app7': 'Visual', 'nav.app8': 'Privacy', 'nav.app9': 'Apps', 'nav.app10': 'Health',
+    'footer.home': 'Home', 'footer.launch': 'Releases', 'footer.bench': 'Benchmarks',
+    'footer.games': 'Games', 'footer.products': 'Products', 'footer.buy': 'Buy',
+    'footer.copy': '© 2026 YNEX Optimizations. All rights reserved.',
+    'page.bench.title': 'Benchmark', 'page.bench.title2': 'Results',
+    'page.bench.sub': 'Real tests performed on various configs. Average results in competitive games at 1080p.',
+    'page.jogos.title': 'Supported', 'page.jogos.title2': 'Games',
+    'page.jogos.sub': 'Tested and verified compatibility with the top competitive titles on the market.',
+    'page.produtos.title': 'Our', 'page.produtos.title2': 'Products',
+    'page.produtos.sub': 'Choose the ideal plan for your setup. All include lifetime updates.',
+    'page.comprar.title': 'Complete', 'page.comprar.title2': 'Purchase',
+    'page.comprar.sub': 'Secure payment and immediate license delivery.',
+    'page.lanc.title': 'Latest', 'page.lanc.title2': 'Releases',
+    'page.lanc.sub': 'Follow the news and updates from YNEX Optimizations.',
+    'page.entrar.title': 'Welcome', 'page.entrar.title2': 'back',
+    'page.entrar.sub': 'Sign in to manage your licenses and downloads.',
+    'page.registrar.title': 'Create', 'page.registrar.title2': 'Account',
+    'page.registrar.sub': 'Sign up for free and start optimizing.',
+    'form.email': 'E-mail', 'form.pass': 'Password', 'form.name': 'Full name',
+    'form.login': 'Sign In', 'form.register': 'Sign Up',
+    'form.noaccount': "Don't have an account? Sign up", 'form.haveaccount': 'Already have an account? Sign in',
+    'toast.login': 'Signed in successfully! Welcome back.',
+    'toast.register': 'Account created successfully! Check your e-mail.',
+    'toast.lang': 'Language switched to English',
+    'toast.applied': 'Tweaks applied successfully!',
+    'pricing.basic': 'Basic', 'pricing.pro': 'Pro', 'pricing.ultra': 'Ultra',
+    'pricing.basicDesc': 'For beginners', 'pricing.proDesc': 'Most popular', 'pricing.ultraDesc': 'Maximum performance',
+    'pricing.monthly': '/mo', 'pricing.once': 'one-time',
+    'pricing.get': 'Get Started', 'pricing.current': 'Current Plan',
+    'buy.order': 'Place Order', 'buy.license': 'License Key',
+    'buy.total': 'Total',
+    'feat1': 'General Boost', 'feat2': 'FPS & GPU Tweaks', 'feat3': 'Ping & Network',
+    'feat4': 'Disk & Cache', 'feat5': 'Power Optimization', 'feat6': 'Privacy',
+    'feat7': 'Discord Support', 'feat8': 'Lifetime updates', 'feat9': 'Turbo Mode +',
+    'game.cs2': 'Counter-Strike 2', 'game.valorant': 'Valorant', 'game.fortnite': 'Fortnite',
+    'game.r6': 'Rainbow Six Siege', 'game.apex': 'Apex Legends', 'game.warzone': 'Call of Duty: Warzone',
+    'game.gta5': 'GTA V', 'game.rust': 'Rust', 'game.pubg': 'PUBG: Battlegrounds',
+    'game.lol': 'League of Legends', 'game.dota2': 'Dota 2', 'game.overwatch': 'Overwatch 2',
+    'status.optimal': 'Optimized', 'status.good': 'Good', 'status.test': 'Testing',
+    'bench.game': 'Game', 'bench.fps': 'FPS Gain', 'bench.lat': 'Latency', 'bench.status': 'Status',
+    'news.read': 'Read more →', 'news.5.0tag': 'v5.0',
+    'news.5.0title': 'YNEX 5.0 — Boost Revolution',
+    'news.5.0desc': 'New optimization engine with +40% FPS in real-world tests.',
+    'news.4.5tag': 'v4.5', 'news.4.5title': 'New Network Panel',
+    'news.4.5desc': 'Full ping and latency control with automated tests.',
+    'news.4.2tag': 'v4.2', 'news.4.2title': 'Ultra Mode for esports',
+    'news.4.2desc': 'Extreme mode for those who want every possible frame.',
+  }
+};
+
+let currentLang = localStorage.getItem('ynex-lang') || 'pt';
+
+function t(key) {
+  return (I18N[currentLang] && I18N[currentLang][key]) || I18N.pt[key] || key;
+}
+
+function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+  document.getElementById('btnPt').classList.toggle('active', currentLang === 'pt');
+  document.getElementById('btnEn').classList.toggle('active', currentCurrentLang === 'en');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('ynex-lang', lang);
+  applyLang();
+  showToast(t('toast.lang'));
+  route();
+}
+
+/* ================================================================
+   TOAST
+================================================================ */
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+/* ================================================================
+   PARTICLES
+================================================================ */
+function createParticles() {
+  const c = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    const colors = ['#a855f7', '#22d3ee', '#ec4899'];
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.appendChild(p);
+  }
+}
+
+/* ================================================================
+   PAGE TEMPLATES
+================================================================ */
+const tweaksList = [
+  { icon: '🎮', name: {pt:'Game Mode Agressivo', en:'Aggressive Game Mode'}, desc: {pt:'Ativa o Game Mode e prepara o Windows para priorizar jogos em segundo plano.', en:'Enables Game Mode and prepares Windows to prioritize background games.'}, on: true },
+  { icon: '🧠', name: {pt:'Otimizar scheduler de CPU', en:'Optimize CPU Scheduler'}, desc: {pt:'Ajusta o scheduler de prioridade do Windows para o primeiro plano interação e jogos.', en:'Adjusts Windows priority scheduler for foreground interaction and gaming.'}, on: true },
+  { icon: '📌', name: {pt:'Priorizar apps em primeiro plano', en:'Prioritize foreground apps'}, desc: {pt:'Reduz a prioridade de tarefas em segundo plano e prioriza o app em uso.', en:'Reduces background task priority and prioritizes the app in use.'}, on: true },
+  { icon: '💾', name: {pt:'Otimizar memória virtual', en:'Optimize virtual memory'}, desc: {pt:'Cria um arquivo de paginação gerenciado pelo sistema e remove caches desnecessários do departamento.', en:'Creates a system-managed paging file and removes unnecessary department caches.'}, on: false },
+  { icon: '⚡', name: {pt:'Limpar inicialização pesada', en:'Clean heavy startup'}, desc: {pt:'Remove atrasos críticos na inicialização e limpa tarefas de terceiros em armazenamento.', en:'Removes critical startup delays and cleans third-party storage tasks.'}, on: true },
+  { icon: '📝', name: {pt:'Otimizar registro 80%', en:'Optimize registry 80%'}, desc: {pt:'Registro otimizado: MMASS High, GearsOf, IFISS. GPU FPS OFF completo. NOTA: UI exposto e memória em background rápido.', en:'Optimized registry: MMASS High, GearsOf, IFISS. GPU FPS OFF full. NOTE: UI exposed and background memory fast.'}, on: false },
+  { icon: '🔧', name: {pt:'Modo baixa latência', en:'Low latency mode'}, desc: {pt:'Ajusta SystemResponsiveness e NetworkThrottling para periféricos de jogos.', en:'Adjusts SystemResponsiveness and NetworkThrottling for gaming peripherals.'}, on: true },
+  { icon: '💥', name: {pt:'HyperTweaksOS Mode', en:'HyperTweaksOS Mode'}, desc: {pt:'Modo sistema otimizado design YNEX. Ativa plano HyperTweaks e reduz serviços em segundo plano.', en:'Optimized YNEX-designed system mode. Activates HyperTweaks plan and reduces background services.'}, on: false },
+];
+
+function appMockup() {
+  const sb = ['nav.app1','nav.app2','nav.app3','nav.app4','nav.app5','nav.app6','nav.app7','nav.app8','nav.app9','nav.app10'];
+  const sbIcons = ['🚀','⚡','🌐','💿','🔋','🔧','👁️','🔒','📱','❤️'];
+  let sbHtml = sb.map((k,i) => `<div class="sb-item${i===0?' active':''}"><span class="icon">${sbIcons[i]}</span>${t(k)}</div>`).join('');
+  let rowsHtml = tweaksList.map(tw => `
+    <div class="tweak-row">
+      <span class="ticon">${tw.icon}</span>
+      <div class="ttext">
+        <div class="tname">${tw.name[currentLang]}</div>
+        <div class="tdesc">${tw.desc[currentLang]}</div>
+      </div>
+      <div class="toggle${tw.on?' on':''}" onclick="this.classList.toggle('on')"></div>
+    </div>`).join('');
+  return `
+  <div class="app-mock">
+    <div class="app-mock-bar"><span class="adot r"></span><span class="adot y"></span><span class="adot g"></span></div>
+    <div class="app-mock-body">
+      <div class="app-sidebar">
+        <div class="sb-title">YNEX <span style="color:var(--neon-purple)">TWEAKS</span></div>
+        ${sbHtml}
+      </div>
+      <div class="app-panel">
+        <h3>${t('mock.title')}</h3>
+        <div class="sub">${t('mock.sub')}</div>
+        ${rowsHtml}
+        <button class="app-mock-cta" onclick="showToast(t('toast.applied'))">${t('mock.apply')} ⚡</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+const pages = {
+  home: () => `
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div>
+        <div class="hero-badge"><span class="dot"></span>${t('hero.badge')}</div>
+        <h1>${t('hero.title1')}<br><span class="grad">${t('hero.title2')}</span></h1>
+        <p>${t('hero.sub')}</p>
+        <div class="hero-stats">
+          <div class="stat-box"><div class="val">${t('hero.stat1')}</div><div class="lbl">${t('hero.stat1l')}</div></div>
+          <div class="stat-box"><div class="val">${t('hero.stat2')}</div><div class="lbl">${t('hero.stat2l')}</div></div>
+          <div class="stat-box"><div class="val">${t('hero.stat3')}</div><div class="lbl">${t('hero.stat3l')}</div></div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#/comprar" class="btn btn-neon btn-pulse">${t('hero.cta')}</a>
+          <div class="hero-price">${t('hero.price')}<small>${t('hero.pricel')}</small></div>
+        </div>
+        <div class="hero-footer">
+          <span class="stars">★★★★★</span>
+          <span>${t('hero.gamers')}</span>
+          <span>|</span>
+          <span>${t('hero.discord')}</span>
+        </div>
+      </div>
+      ${appMockup()}
+    </div>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>${currentLang==='pt'?'Por que <span class="grad">YNEX</span>?':'Why <span class="grad">YNEX</span>?'}</h2>
+          <p>${currentLang==='pt'?'Tecnologia de ponta para extrair o máximo do seu hardware.':'Cutting-edge technology to extract the maximum from your hardware.'}</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><div class="card-icon">🚀</div><h3>${currentLang==='pt'?'Boost Instantâneo':'Instant Boost'}</h3><p>${currentLang==='pt'?'Um clique para aplicar todas as otimizações recomendadas pelo motor YNEX.':'One click to apply all optimizations recommended by the YNEX engine.'}</p></div>
+          <div class="card"><div class="card-icon">🛡️</div><h3>${currentLang==='pt'?'Indetectável':'Undetectable'}</h3><p>${currentLang==='pt'?'Reescreva o registro de forma segura. Nenhum anti-cheat detecta a ferramenta.':'Rewrite the registry safely. No anti-cheat detects the tool.'}</p></div>
+          <div class="card"><div class="card-icon">🎯</div><h3>${currentLang==='pt'':'Precisão de 1ms':'1ms Precision'}</h3><p>${currentLang==='pt'?'Controle total sobre latência de rede e renderização de frames.':'Full control over network latency and frame rendering.'}</p></div>
+        </div>
+      </div>
+    </section>
+  </section>`,
+
+  benchmarks: () => `
+  <section class="page" id="page-benchmarks">
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>${t('page.bench.title')} <span class="grad">${t('page.bench.title2')}</span></h2>
+          <p>${t('page.bench.sub')}</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>${t('bench.game')}</th><th>${t('bench.fps')}</th><th>${t('bench.lat')}</th><th>${t('bench.status')}</th></tr></thead>
+            <tbody>
+              <tr><td>${t('game.cs2')}</td><td style="color:var(--neon-green);font-weight:800">+38%</td><td style="color:var(--neon-cyan)">8ms</td><td><span class="badge badge-green">${t('status.optimal')}</span></td></tr>
+              <tr><td>${t('game.valorant')}</td><td style="color:var(--neon-green);font-weight:800">+42%</td><td style="color:var(--neon-cyan)">6ms</td><td><span class="badge badge-green">${t('status.optimal')}</span></td></tr>
+              <tr><td>${t('game.fortnite')}</td><td style="color:var(--neon-green);font-weight:800">+35%</td><td style="color:var(--neon-cyan)">11ms</td><td><span class="badge badge-green">${t('status.optimal')}</span></td></tr>
+              <tr><td>${t('game.apex')}</td><td style="color:var(--neon-green);font-weight:800">+44%</td><td style="color:var(--neon-cyan)">9ms</td><td><span class="badge badge-green">${t('status.optimal')}</span></td></tr>
+              <tr><td>${t('game.warzone')}</td><td style="color:var(--neon-green);font-weight:800">+31%</td><td style="color:var(--neon-cyan)">14ms</td><td><span class="badge badge-cyan">${t('status.good')}</span></td></tr>
+              <tr><td>${t('game.r6')}</td><td style="color:var(--neon-green);font-weight:800">+37%</td><td style="color:var(--neon-cyan)">7ms</td><td><span class="badge badge-green">${t('status.optimal')}</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>`,
+
+  jogos: () => {
+    const games = [
+      {icon:'🎮', key:'cs2'}, {icon:'🔫', key:'valorant'}, {icon:'🏗️', key:'fortnite'},
+      {icon:'🛡️', key:'r6'}, {icon:'💥', key:'apex'}, {icon:'🎯', key:'warzone'},
+      {icon:'🚗', key:'gta5'}, {icon:'🏚️', key:'rust'}, {icon:'🪖', key:'pubg'},
+      {icon:'⚔️', key:'lol'}, {icon:'🏰', key:'dota2'}, {icon:'🤖', key:'overwatch'},
+    ];
+    const cards = games.map(g => `
+      <div class="game-card">
+        <div class="game-icon">${g.icon}</div>
+        <div class="game-info"><h3>${t('game.'+g.key)}</h3><p>${currentLang==='pt'?'Otimizado e testado':'Optimized and tested'}</p></div>
+        <span class="badge badge-green game-tag">${t('status.optimal')}</span>
+      </div>`).join('');
+    return `
+    <section class="page" id="page-jogos">
+      <div class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>${t('page.jogos.title')} <span class="grad">${t('page.jogos.title2')}</span></h2>
+            <p>${t('page.jogos.sub')}</p>
+          </div>
+          <div class="grid grid-3">${cards}</div>
+        </div>
+      </div>
+    </section>`;
+  },
+
+  produtos: () => `
+  <section class="page" id="page-produtos">
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>${t('page.produtos.title')} <span class="grad">${t('page.produtos.title2')}</span></h2>
+          <p>${t('page.produtos.sub')}</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-name">${t('pricing.basic')}</div>
+            <div class="price-val">R$ 9<small>${currentLang==='pt'?'/mês':'/mo'}</small></div>
+            <div class="price-desc">${t('pricing.basicDesc')}</div>
+            <ul class="price-features">
+              <li>${t('feat1')}</li><li>${t('feat2')}</li><li>${t('feat3')}</li><li>${t('feat4')}</li>
+            </ul>
+            <a href="#/comprar" class="btn btn-outline" style="width:100%">${t('pricing.get')}</a>
+          </div>
+          <div class="price-card featured">
+            <div class="price-badge">⚡ ${currentLang==='pt'?'MAIS POPULAR':'MOST POPULAR'}</div>
+            <div class="price-name">${t('pricing.pro')}</div>
+            <div class="price-val">R$ 14,90<small>${t('pricing.once')}</small></div>
+            <div class="price-desc">${t('pricing.proDesc')}</div>
+            <ul class="price-features">
+              <li>${t('feat1')}</li><li>${t('feat2')}</li><li>${t('feat3')}</li><li>${t('feat4')}</li>
+              <li>${t('feat5')}</li><li>${t('feat6')}</li><li>${t('feat7')}</li><li>${t('feat8')}</li>
+            </ul>
+            <a href="#/comprar" class="btn btn-neon" style="width:100%">${t('pricing.get')}</a>
+          </div>
+          <div class="price-card">
+            <div class="price-name">${t('pricing.ultra')}</div>
+            <div class="price-val">R$ 29,90<small>${t('pricing.once')}</small></div>
+            <div class="price-desc">${t('pricing.ultraDesc')}</div>
+            <ul class="price-features">
+              <li>${t('feat1')}</li><li>${t('feat2')}</li><li>${t('feat3')}</li><li>${t('feat4')}</li>
+              <li>${t('feat5')}</li><li>${t('feat6')}</li><li>${t('feat7')}</li><li>${t('feat8')}</li><li>${t('feat9')}</li>
+            </ul>
+            <a href="#/comprar" class="btn btn-neon" style="width:100%">${t('pricing.get')}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`,
+
+  comprar: () => `
+  <section class="page" id="page-comprar">
+    <div class="section">
+      <div class="container" style="max-width:520px">
+        <div class="section-header">
+          <h2>${t('page.comprar.title')} <span class="grad">${t('page.comprar.title2')}</span></h2>
+          <p>${t('page.comprar.sub')}</p>
+        </div>
+        <div class="form-wrap">
+          <div class="form-group"><label>${t('form.email')}</label><input type="email" placeholder="email@exemplo.com"></div>
+          <div class="form-group"><label>${t('form.pass')}</label><input type="password" placeholder="••••••••"></div>
+          <div class="form-group"><label>${t('buy.license')}</label><input type="text" placeholder="YNEX-XXXX-XXXX-XXXX"></div>
+          <div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--border);margin-bottom:16px">
+            <span style="font-weight:700">${t('buy.total')}</span>
+            <span style="font-weight:900;font-size:20px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">R$ 14,90</span>
+          </div>
+          <button class="btn btn-neon btn-pulse form-btn" onclick="showToast(t('toast.login'))">${t('buy.order')} ⚡</button>
+        </div>
+      </div>
+    </div>
+  </section>`,
+
+  lancamentos: () => `
+  <section class="page" id="page-lancamentos">
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>${t('page.lanc.title')} <span class="grad">${t('page.lanc.title2')}</span></h2>
+          <p>${t('page.lanc.sub')}</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="news-card">
+            <div class="news-img">🚀</div>
+            <div class="news-body"><div class="date">${t('news.5.0tag')} — Out 2026</div><h3>${t('news.5.0title')}</h3><p>${t('news.5.0desc')}</p><a href="#" class="read-more">${t('news.read')}</a></div>
+          </div>
+          <div class="news-card">
+            <div class="news-img">🌐</div>
+            <div class="news-body"><div class="date">${t('news.4.5tag')} — Set 2026</div><h3>${t('news.4.5title')}</h3><p>${t('news.4.5desc')}</p><a href="#" class="read-more">${t('news.read')}</a></div>
+          </div>
+          <div class="news-card">
+            <div class="news-img">💥</div>
+            <div class="news-body"><div class="date">${t('news.4.2tag')} — Ago 2026</div><h3>${t('news.4.2title')}</h3><p>${t('news.4.2desc')}</p><a href="#" class="read-more">${t('news.read')}</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`,
+
+  entrar: () => `
+  <section class="page" id="page-entrar">
+    <div class="section" style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 128px)">
+      <div class="form-wrap">
+        <h2>${t('page.entrar.title')} <span class="grad">${t('page.entrar.title2')}</span></h2>
+        <p class="sub">${t('page.entrar.sub')}</p>
+        <div class="form-group"><label>${t('form.email')}</label><input type="email" placeholder="email@exemplo.com"></div>
+        <div class="form-group"><label>${t('form.pass')}</label><input type="password" placeholder="••••••••"></div>
+        <button class="btn btn-neon form-btn" onclick="showToast(t('toast.login'))">${t('form.login')}</button>
+        <div class="form-alt">${t('form.noaccount')} <a href="#/registrar">${currentLang==='pt'?'Registre-se':'Sign up'}</a></div>
+      </div>
+    </div>
+  </section>`,
+
+  registrar: () => `
+  <section class="page" id="page-registrar">
+    <div class="section" style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 128px)">
+      <div class="form-wrap">
+        <h2>${t('page.registrar.title')} <span class="grad">${t('page.registrar.title2')}</span></h2>
+        <p class="sub">${t('page.registrar.sub')}</p>
+        <div class="form-group"><label>${t('form.name')}</label><input type="text" placeholder="Seu nome"></div>
+        <div class="form-group"><label>${t('form.email')}</label><input type="email" placeholder="email@exemplo.com"></div>
+        <div class="form-group"><label>${t('form.pass')}</label><input type="password" placeholder="••••••••"></div>
+        <button class="btn btn-neon form-btn" onclick="showToast(t('toast.register'))">${t('form.register')}</button>
+        <div class="form-alt">${t('form.haveaccount')} <a href="#/entrar">${currentLang==='pt'?'Entrar':'Sign in'}</a></div>
+      </div>
+    </div>
+  </section>`,
+};
+
+/* ================================================================
+   ROUTER
+================================================================ */
+function route() {
+  const hash = location.hash.replace('#/', '') || 'home';
+  const pageKey = pages[hash] ? hash : 'home';
+  document.getElementById('app').innerHTML = pages[pageKey]();
+  // Update active nav
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.route === pageKey);
+  });
+  window.scrollTo({top: 0, behavior: 'instant'});
+}
+
+/* ================================================================
+   MOBILE MENU
+================================================================ */
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+/* ================================================================
+   INIT
+================================================================ */
+window.addEventListener('hashchange', route);
+applyLang();
+route();
+createParticles();
+</script>
+</body>
+</html>
